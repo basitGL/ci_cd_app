@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => CounterState(0),
+      create: (context) => CounterState(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -45,7 +45,7 @@ class MyHomePage extends StatelessWidget {
               'You have pushed the button this many times:',
             ),
             Text(
-              '${context.read<CounterState>().counter}',
+              context.watch<CounterState>().counter.toString(),
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
